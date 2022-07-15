@@ -28,20 +28,45 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#" style="font-family: 'Kanit', sans-serif;">Contact Management App</a>
+  <style type="text/css">
+    .kan{
+      font-family: 'Kanit', sans-serif;
+    }
+  </style>
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <a class="kan navbar-brand" href="{{url('/')}}" style="color: red;">Contact Management App</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item ">
+        <a class="kan nav-link" href="{{route('home')}}">Home </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="kan nav-link" href="#">Link</a>
       </li>
+      </ul>
+
+      @if(Auth::Check())
+      <ul class="navbar-nav mr-right" >
+      <li class="nav-item">
+        <a class="kan nav-link" href="#" >&#xf406; {{ Auth::user()->name }}</a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();" style="color: red;">
+            {{ __('Logout') }}
+          </a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+              </form>
+      </li>
+      @endif
     </ul>
     
   </div>
@@ -50,8 +75,15 @@
 <div id="content" class="container-fluid">
 
 	@yield('index')
+
+  @yield('welcome')
+
+  @yield('content')
+
 	
 </div>
+
+
 
 
 </body>

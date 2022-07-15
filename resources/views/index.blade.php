@@ -48,8 +48,12 @@
       <td>{{$list_company->email}}</td>
       <td>
       	<a href="" class="btcls btn btn-sm btn-info" >VIEW</a>
+        @if (Auth::Check())
+
       	<a href="" class="btcls btn btn-sm btn-success">EDIT</a>
       	<a href="" class="btcls btn btn-sm btn-danger">DELETE</a>
+        
+        @endif
       </td>
     </tr>
  @endforeach

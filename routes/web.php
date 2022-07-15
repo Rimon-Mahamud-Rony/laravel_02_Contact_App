@@ -13,10 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
 
 
-Route::get('/', 'CompanyController@test')->name('test');
+
+
+Route::get('/index', 'CompanyController@show_all_company')->name('show_all_company');
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
