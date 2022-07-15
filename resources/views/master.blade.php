@@ -43,6 +43,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ">
+       
         <a class="kan nav-link" href="{{route('home')}}">Home </a>
       </li>
       <li class="nav-item">
@@ -52,15 +53,14 @@
 
       @if(Auth::Check())
       <ul class="navbar-nav mr-right" >
-      <li class="nav-item">
-        <a class="kan nav-link" href="#" >&#xf406; {{ Auth::user()->name }}</a>
+      <li class="nav-item ">
+       <a class=" kan nav-link " href="#" ><span class="fa fa-user"> {{"  ".Auth::user()->name }}</span></a>
       </li>
       <li class="nav-item">
-         <a class="nav-link" href="{{ route('logout') }}"
+         <a class="form-control mr-sm-3" href="{{ route('logout') }}"
               onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();" style="color: red;">
-            {{ __('Logout') }}
-          </a>
+              document.getElementById('logout-form').submit();" style="color: red; border-radius: 0px; font-size: 15px;"><span class="fa fa-sign-out">{{ __('Logout') }}</span>
+         </a>
 
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                   @csrf
@@ -80,11 +80,34 @@
 
   @yield('content')
 
-	
+
 </div>
 
 
+<style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0px;
+  background-color: #1F618D;
+  font-size: 12px;
+  color: white;
+  font-family: 'Kanit', sans-serif;
+}
+</style>
 
+<div class="footer">
+   
+  <div class=" footer-copyright text-center py-2">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">&copy; Copyright: 2022 | Rimon Mahamud Rony | Contact Management App | <span class="fa fa-phone">&nbsp;&nbsp;: 
+       01862117112</span> | &#9993; : rimonronyinfo@gmail.com</li>
+    </ul>
+  </div>
+
+</div>
 
 </body>
 </html>
