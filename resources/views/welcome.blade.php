@@ -40,13 +40,9 @@
             <div class="card" style="width: 28rem;" style="font-family: 'Sanchez', serif;">
               
                   <img src="{{asset('img/add.png')}}" height="200" width="50" class="card-img-top" alt="..." style="border-radius:50%; ">
-              
-              <div class="card-body">
-                <h5 class="card-title">Admin Name</h5>
-                <p class="card-text"></p>
-              </div>
+                <h5 class="alert">{{"  ".Auth::user()->name }}</h5>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Email</li>
+                <li class="list-group-item">{{"  ".Auth::user()->email }}</li>
                 <li class="list-group-item">Phone</li>
                 <li class="list-group-item">Admin's ID</li>
               </ul>
