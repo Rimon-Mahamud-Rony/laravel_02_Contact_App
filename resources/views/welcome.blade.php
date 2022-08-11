@@ -7,18 +7,57 @@
     <h6 align="center" class="alert alert-info" style="border-radius: 0px; font-family: 'Sanchez', serif; color:black; font-size: 15px;">
         Welcome to Contact Management App
     </h6>
+    <br>
 
     <div id="full" class="container-fluid">
         <div id="left" class="container col-sm-4" style="float: left;">
-            <p>This is left section</p>
+            <table class="table table-borderless table-sm">
+                    <tbody style="font-family: 'Kanit', sans-serif;">
+                        
+                         <p style="margin-left:10%;">   
+                            <img src="{{asset('img/ppp.png') }}" height="200" width="180">
+                            
+                        </p>
+                        <tr>
+                            <td><h5 class="alert" style="color:red;">Conatct Management for <br>ABCD COMPANY LTD.</h5></td>
+                        </tr>
+                        <tr>
+                            <td  class="alert">Dhaka, Bangladesh. Established: 1990.</td>
+                        </tr>
+                        <tr>
+                            <td  class="alert">ISIN: 123456</td>
+                        </tr>
+                    </tbody>            
+                </table>
         </div>
 
-        <div id="right" class="container col-sm-8" style="float: left;">
+        <div id="right" class="container col-sm-8" style="float: right;">
+            <div class="row justify-content-center">
             
             @if(Auth::check()) 
+
+
+            <div class="card" style="width: 28rem;" style="font-family: 'Sanchez', serif;">
+              
+                  <img src="{{asset('img/add.png')}}" height="200" width="50" class="card-img-top" alt="..." style="border-radius:50%; ">
+              
+              <div class="card-body">
+                <h5 class="card-title">Admin Name</h5>
+                <p class="card-text"></p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Email</li>
+                <li class="list-group-item">Phone</li>
+                <li class="list-group-item">Admin's ID</li>
+              </ul>
+              <div class="card-body">
                     <div class="card-header alert-dark">
                         <a href="{{route('home')}}" class="divdec"> Go to Dashboard </a>
                     </div>
+              </div>
+            </div>
+            </div>
+                    
             @else
 
             <div class="container">
@@ -94,6 +133,8 @@
                 </div>
             </div>
             @endif
+            <p>&nbsp;</p>
+            
         </div>
         
     </div>
