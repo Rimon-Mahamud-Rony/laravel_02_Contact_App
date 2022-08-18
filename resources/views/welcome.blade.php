@@ -1,16 +1,20 @@
 @extends('master')
 
+@section('title')
+ABC COMPANY | CONTACT APP
+@endsection
+
 @section('welcome')
 
 <div class="container-fluid">
     <br>
-    <h6 align="center" class="alert alert-info" style="border-radius: 0px; font-family: 'Sanchez', serif; color:black; font-size: 15px;">
+    <h6 align="center" class="alert alert-success" style="border-radius: 0px; font-family: 'Sanchez', serif; color:black; font-size: 14px;">
         Welcome to Contact Management App
     </h6>
     <br>
 
     <div id="full" class="container-fluid">
-        <div id="left" class="container col-sm-4" style="float: left;">
+        <div id="left" class="container col-sm-5" style="float: left;">
             <table class="table table-borderless table-sm">
                     <tbody style="font-family: 'Kanit', sans-serif;">
                         
@@ -19,7 +23,7 @@
                             
                         </p>
                         <tr>
-                            <td><h5 class="alert" style="color:red;">Conatct Management for <br>ABCD COMPANY LTD.</h5></td>
+                            <td><h5 style="color:red;">Conatct Management for ABCD COMPANY LTD.</h5></td>
                         </tr>
                         <tr>
                             <td  class="alert">Dhaka, Bangladesh. Established: 1990.</td>
@@ -29,29 +33,35 @@
                         </tr>
                     </tbody>            
                 </table>
+
         </div>
 
-        <div id="right" class="container col-sm-8" style="float: right;">
-            <div class="row justify-content-center">
-            
+        <div id="right" class="container-fluid col-sm-7" style="float: right; margin-top: -2%;">
             @if(Auth::check()) 
-
-
-            <div class="card" style="width: 28rem;" style="font-family: 'Sanchez', serif;">
-              
-                  <img src="{{asset('img/add.png')}}" height="200" width="50" class="card-img-top" alt="..." style="border-radius:50%; ">
-                <h5 class="alert">{{"  ".Auth::user()->name }}</h5>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{"  ".Auth::user()->email }}</li>
-                <li class="list-group-item">Phone</li>
-                <li class="list-group-item">Admin's ID</li>
-              </ul>
-              <div class="card-body">
-                    <div class="card-header alert-dark">
-                        <a href="{{route('home')}}" class="divdec"> Go to Dashboard </a>
+                <div class="row justify-content-center">
+                    <div class="card alert alert-success divdec" style="width: 25rem; font-family: 'Kanit', sans-serif;">
+                        <a href="{{route('home')}}" style="font-size:20px; color: red;"> Go to your dashboard </a>
                     </div>
-              </div>
+                </div>
+
+            <div class="row justify-content-center">
+
+            
+
+            <div class="card" style="width: 25rem;" style="font-family: 'Sanchez', serif;">
+                
+              <ul class="list-group list-group-flush" style="list-style-type: none;">
+                <li class="list-group-item py-1">Admin Profile</li>
+                <li class="list-group-item alert py-1" style="text-align: center;">
+                      <img src="{{asset('img/admin.jpg')}}" height="150" width="150" style="border-radius: 50%;">
+                </li>
+                <li class="list-group-item alert py-1"><h5>{{"  ".Auth::user()->name }}</h5></li>
+                <li class="list-group-item py-1">{{"  ".Auth::user()->email }}</li>
+                <li class="list-group-item py-1">Phone</li>
+                <li class="list-group-item py-1">Admin's ID</li>
+              </ul>
             </div>
+            <br>
             </div>
                     
             @else
@@ -98,7 +108,7 @@
 
                                     <div class="row mb-0">
                                         <div class="col-md-8 offset-md-4">
-                                            <button type="submit" class="col-md-4 btn btn-primary btn-sm">
+                                            <button type="submit" class="col-md-6 btn btn-primary btn-sm">
                                                 {{ __('Login') }}
                                             </button>
                                             
@@ -115,13 +125,12 @@
                         </div>
                         <br>
 
-                        <div class="card-header alert-dark">
+                        <div class="card-header alert alert-info" style="font-size: 12px;">
                         <a href="{{route('register')}}" class="divdec"> REGISTER AS A NEW USER </a>
                         </div>
-                        <br>
 
-                        <div class="card-header alert-info" >
-                            <a href="/index" class="divdec"> USE APP AS A GUEST USER</a>
+                        <div class="card-header alert alert-info" style="font-size: 12px;" >
+                            <a href="/index" class="divdec"> USE APP AS A <span style="color:red;"><b>GUEST</b></span> USER</a>
                         </div><br> 
                     </div>
 

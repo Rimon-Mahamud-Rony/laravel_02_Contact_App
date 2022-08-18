@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'CONTACT MANAGEMENT') }}</title>
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -38,7 +38,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" >
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}" style="font-family: 'Kanit', sans-serif;">
+                <a class="navbar-brand" href="{{ url('/') }}" style="font-family: 'Kanit', sans-serif;color: red;">
                     Contact Management App
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="{{ __('Toggle navigation') }}">

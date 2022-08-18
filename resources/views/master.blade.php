@@ -3,9 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>
-    
-  </title>
+<title>
+    @yield('title','Student Management')
+</title>
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -18,43 +18,69 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Sanchez&display=swap" rel="stylesheet">
 
-  <!--font-family: 'Kanit', sans-serif;
-  font-family: 'Sanchez', serif; -->
+  <!--
+  font-family: 'Kanit', sans-serif;
+  font-family: 'Sanchez', serif; 
+  font-family: 'Open Sans', sans-serif;
+  -->
+
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
 
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-</head>
-<body>
+
 
   <style type="text/css">
-    .kan{
+    .kan1{
       font-family: 'Kanit', sans-serif;
     }
+    .kan{
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+    }
   </style>
+  </head>
 
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
-  <a class="kan navbar-brand" href="{{url('/')}}" style="color: red;">Contact Management App</a>
+<body style="background-color: #F4F6F6;">
+
+<nav class="navbar navbar-expand-sm navbar-light shadow bg-white rounded navbar-fixed-top">
+  <a class="kan1 navbar-brand" href="{{url('/')}}" style="color: red;">Contact Management App</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="">
+       
+        <a class="kan nav-link" href="/index">Company</a>
+      </li>
       <li class="nav-item ">
        
-        <a class="kan nav-link" href="{{route('home')}}">Home </a>
+        <a class="kan nav-link" href="/all_contacts">Contacts</a>
+      </li>
+
+      @if(Auth::user())
+
+      <li class="nav-item ">
+        <a class="kan nav-link" href="{{route('home')}}">Dashboard/Home</a>
       </li>
       <li class="nav-item">
-        <a class="kan nav-link" href="#">Link</a>
+        <a class="kan nav-link" href="/creat_contacts">Add Contacts</a>
       </li>
+      <li class="nav-item">
+        <a class="kan nav-link" href="/index">Add Company</a>
+      </li>
+      @endif
       </ul>
 
       @if(Auth::Check())
       <ul class="navbar-nav mr-right" >
       <li class="nav-item ">
-       <a class=" kan nav-link " href="#" ><span class="fa fa-user"> {{"  ".Auth::user()->name }}</span></a>
+       <a class=" kan nav-link " href="/" ><span class="fa fa-user"> {{"  ".Auth::user()->name }}</span></a>
       </li>
       <li class="nav-item">
          <a class="form-control mr-sm-3" href="{{ route('logout') }}"
@@ -72,13 +98,18 @@
   </div>
 </nav>
 
-<div id="content" class="container-fluid">
+
+<div id="content" class="container-fluid" >
 
 	@yield('index')
 
   @yield('welcome')
 
   @yield('content')
+
+  @yield('allcontacts')
+
+   @yield('creat_contacts')
 
 
 
@@ -94,7 +125,7 @@
   border-radius: 0px;
   background-color: #1F618D;
   font-size: 12px;
-  color: white;
+  color: black;
   font-family: 'Kanit', sans-serif;
 }
 </style>

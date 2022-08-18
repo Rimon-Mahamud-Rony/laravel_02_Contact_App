@@ -1,12 +1,86 @@
+@extends('master')
 
-@extends('layouts.app')
+@section('title')
+CONTACT APP|Creat Contacts
+@endsection
 
-@section('content')
-<div class="container">
+@section('creat_contacts')
+
+<div class="container-fluid">
+	<br>
+	<h6 align="center" class="alert alert-success" style="border-radius: 0px; font-family: 'Sanchez', serif; color:black; font-size: 14px;">Contact Management: Add a new contact to the list</h6>
+</div>
+@if (Auth::Check())
+
+<div class="container col-md-6">
+
+	<div id="cardbody" class=" card" style="width: 34rem; background-color:white;">
+
+		<div class="card-header " style=" background-color:#1F618D; color: white; font-family: 'Kanit', sans-serif;">
+			+ Add new contact
+		</div>
+
+		<div id="" class="container-fluid col-sm-10" style="font-size:13px;">
+		<form>
+		  <div class="form-group ">
+		  	<p></p>
+		    <label for="exampleInputEmail1">First Name:</label>
+		    <input type="text" class="form-control form-control-sm" name="f_name">
+		  </div>
+
+		  <div class="form-group ">
+		    <label for="exampleInputEmail1">Last Name:</label>
+		    <input type="text" class="form-control form-control-sm" name="l_name">
+		  </div>
+
+		  <div class="form-group ">
+		    <label for="exampleInputEmail1">Email address:</label>
+		    <input type="email" class="form-control form-control-sm" name="email">
+		  </div>
+
+		  <div class="form-group ">
+		    <label for="exampleInputEmail1">Phone:</label>
+		    <input type="text" class="form-control form-control-sm" name="phone">
+		  </div>
+
+		  <div class="form-group ">
+		    <label for="exampleInputEmail1">Address</label>
+		    <input type="text" class="form-control form-control-sm" name="address">
+		  </div>
+
+		  <div class="form-group ">
+		    <label for="exampleFormControlSelect1">Company</label>
+		    <select class="form-control form-control-sm" name="company">
+
+		      @foreach ($list_company as $list_company)
+
+		      <option>{{$list_company->name}}</option>
+		      
+		      @endforeach
+		      
+		    </select>
+		  </div>
+		  <button type="submit" class="col-sm-4 btn btn-primary btn-sm">Submit</button>
+
+		</form>
+		<br>
+		</div>
+	</div>
+</div>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+@else
+
+    <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">
+                	 {{ __('Please Log in First') }}
+                </div>
+                
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -40,21 +114,11 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="col-md-4 btn btn-primary btn-sm">
                                     {{ __('Login') }}
                                 </button>
 
@@ -65,18 +129,21 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="row mb-0">
+                    </form>
+
+                    <div class="row mb-0">
                         <div class="col-md-8 offset-md-4">
-                            <br>
+                        	<br>
                             <div class="alert alert-warning">
-                                Don’t have an account? <a href="{{ route('register') }}">{{ __('Complete your registration from here.') }}</a>
-                            </div>
+				                Don’t have an account? <a href="{{ route('register') }}">{{ __('Complete your registration from here.') }}</a>
+				            </div>
                         </div>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endif
+
 @endsection
