@@ -70,8 +70,8 @@ ABC COMPANY | CONTACT APP
                 <div class="row justify-content-center">
                     <div class="col-md-8" >
                     
-                        <div class="card" style="border-radius: 0px;">
-                            <div class="card-header alert" style=" border-radius: 0px;">
+                        <div class="card" style="border-radius: 0px; font-size:13px;">
+                            <div class="card-header alert" style=" border-radius: 0px; background-color:#1F618D; color: white;">
                             {{ __('Login to Proceed...') }}</div>
 
                             <div class="card-body">
@@ -79,10 +79,10 @@ ABC COMPANY | CONTACT APP
                                     @csrf
 
                                     <div class="row mb-3">
-                                        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address :') }}</label>
 
-                                        <div class="col-md-6">
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        <div class="col-md-7">
+                                            <input id="email" type="email" class="form-control form-control-sm @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -93,10 +93,10 @@ ABC COMPANY | CONTACT APP
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                                        <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password :') }}</label>
 
-                                        <div class="col-md-6">
-                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                        <div class="col-md-7">
+                                            <input id="password" type="password" class="form-control form-control-sm @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">

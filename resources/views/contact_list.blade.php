@@ -22,10 +22,15 @@ CONTACT APP | CONTACT LIST
 		}
 	</style>
 
+	@if (Session::has('message'))
+		   <div class="alert alert-warning" style="border-radius:0px; width:70%; margin-left: 15%;  text-align: center; font-size: 12px;">{{ Session::get('message') }}</div>
+		@endif
+
 	<div  id="contact_list" style="margin-left: 3%; margin-right: 3%; background-color:white;">
 		<div class="card-header py-1" style=" font-family: 'Kanit', sans-serif; background-color:#1F618D; ">
 			<a href="/creat_contacts" class="def btn btn-sm fa fa-plus-circle" style="color:white;"> ADD A NEW CONTACT</a>
 		</div>
+
 		<table class=" table table-sm  table-bordered table-hover">
 		  <thead class="def alert alert-dark">
 		    <tr>
@@ -54,7 +59,7 @@ CONTACT APP | CONTACT LIST
 				      <td>{{$contact_list_showed->company}}</td>
 				      
 				      <td>
-				        <a href="" class="btcls btn btn-sm btn-info" >VIEW</a>
+				        <a href="/view/{{$contact_list_showed->id}}" class="btcls btn btn-sm btn-info" >VIEW</a>
 				        @if (Auth::Check())
 
 				        <a href="" class="btcls btn btn-sm btn-success">EDIT</a>

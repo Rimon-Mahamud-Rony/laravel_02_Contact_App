@@ -21,7 +21,13 @@ CONTACT APP|Creat Contacts
 		</div>
 
 		<div id="" class="container-fluid col-sm-10" style="font-size:13px;">
-		<form>
+					@if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+		<form method="POST" action="{{route('store')}}">
+			@csrf
 		  <div class="form-group ">
 		  	<p></p>
 		    <label for="exampleInputEmail1">First Name:</label>

@@ -17,6 +17,10 @@
 	}
 </style>
 
+@if (Session::has('message'))
+   <div class="alert alert-warning" style="border-radius:0px; width:70%; margin-left: 15%;  text-align: center; font-size: 12px;">{{ Session::get('message') }}</div>
+@endif
+
 <div id="list of all companies" style="margin-left: 10%; margin-right: 10%;">
 	<div class="container" align="left">
 		<a href="" class="def btn btn-sm btn-success fa fa-plus-circle" > ADD A NEW COMPANY</a>

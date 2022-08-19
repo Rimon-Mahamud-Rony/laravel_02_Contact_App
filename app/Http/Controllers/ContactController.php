@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Contact;
 
+use Session;
 
 class ContactController extends Controller
 {
@@ -18,21 +19,37 @@ class ContactController extends Controller
 
     public function contact_list()
     {
-        /*$contact_list = Contact::all();
 
-        return view('all_contacts')->with('contact_list', $contact_list);*/
-
-        $contact_list = Contact::all();
+        $contact_list = Contact::all()->sortByDesc("id");
 
         return view('contact_list')->with('contact_list', $contact_list);
 
     }
 
 
-    
+    public function store(Request $request)
+    {
+        $store_contact = new Contact;
+
+        $store_contact->first_name = $request->f_name;
+
+        $store_contact->last_name = $request->l_name;
+
+        $store_contact->email = $request->email;
+
+        $store_contact->phone = $request->phone;
+
+        $store_contact->address = $request->address;
+
+        $store_contact->company = $request->company;
+
+        $store_contact->save();
 
 
+        return redirect()->route('contact_list')->with('message', 'registration completed'); //it works
 
+        //return redirect()->route('creat_contacts');
 
+    }
 
 }
