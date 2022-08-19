@@ -60,7 +60,7 @@
       </li>
       <li class="nav-item ">
        
-        <a class="kan nav-link" href="/all_contacts">Contacts</a>
+        <a class="kan nav-link" href="/contact_list">Contacts</a>
       </li>
 
       @if(Auth::user())
@@ -107,7 +107,7 @@
 
   @yield('content')
 
-  @yield('allcontacts')
+  @yield('contact_list')
 
    @yield('creat_contacts')
 

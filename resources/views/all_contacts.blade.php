@@ -44,7 +44,7 @@ ABC COMPANY LTD. | CONTACT APP
 
 @foreach ($all_company as $list_company) 
 
-	@php $i=$i+1; @endphp
+  @php $i=$i+1; @endphp
     <tr class="def">
       <th scope="row" >{{$i}}</th>
       <td>{{$list_company->name}}</td>
@@ -52,11 +52,11 @@ ABC COMPANY LTD. | CONTACT APP
       <td>{{$list_company->website}}</td>
       <td>{{$list_company->email}}</td>
       <td>
-      	<a href="" class="btcls btn btn-sm btn-info" >VIEW</a>
+        <a href="" class="btcls btn btn-sm btn-info" >VIEW</a>
         @if (Auth::Check())
 
-      	<a href="" class="btcls btn btn-sm btn-success">EDIT</a>
-      	<a href="" class="btcls btn btn-sm btn-danger">DELETE</a>
+        <a href="" class="btcls btn btn-sm btn-success">EDIT</a>
+        <a href="" class="btcls btn btn-sm btn-danger">DELETE</a>
         
         @endif
       </td>
@@ -64,6 +64,13 @@ ABC COMPANY LTD. | CONTACT APP
  @endforeach
   </tbody>
 </table>
+
+
+
+<div>
+  
+  
+</div>
 </div>
 
 @endsection

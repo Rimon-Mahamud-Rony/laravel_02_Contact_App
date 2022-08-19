@@ -25,11 +25,12 @@ class CompanyController extends Controller
 
     }
 
-    public function list_company()
+     public function list_company_for_add_contact()
     {
         $list_company = Company::all();
         return view('creat_contacts')->with('list_company', $list_company);
     }
+   
 
     public function guest_show()
     {

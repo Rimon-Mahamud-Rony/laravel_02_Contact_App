@@ -61,7 +61,7 @@ CONATCT APP | DASHBOARD
                                     
                                 </tr>
                             </table>
-                                <a href="/all_contacts" class="btbg btn btn-primary btn-sm">All employee contacts</a>
+                                <a href="/contact_list" class="btbg btn btn-primary btn-sm">All employee contacts</a>
                        </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@ CONATCT APP | DASHBOARD
                         <h6>Add  a new Employee</h6>
                         <table class="table table-sm table-bordered">
                                 <tr>
-                                    <td class="tf text-sm-left">Last Employee added time:<br> 22-6-2022</td>
+                                    <td class="tf text-sm-left">Last Action: 22-6-2022</td>
                                     
                                 </tr>
                                 <tr>

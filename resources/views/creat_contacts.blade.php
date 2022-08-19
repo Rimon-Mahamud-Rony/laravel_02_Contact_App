@@ -60,7 +60,7 @@ CONTACT APP|Creat Contacts
 		      
 		    </select>
 		  </div>
-		  <button type="submit" class="col-sm-4 btn btn-primary btn-sm">Submit</button>
+		  <button type="submit" name="contact_submit" class="col-sm-4 btn btn-primary btn-sm">Submit</button>
 
 		</form>
 		<br>
