@@ -21,6 +21,10 @@ Route::get('/contact_list', function () {
     return view('contact_list');
 });
 
+Route::get('/single_view', function () {
+    return view('single_view');
+});
+
 /*Route::get('/creat_contacts', function () {
     return view('creat_contacts');
 });
@@ -48,6 +52,8 @@ Route::post('/store', 'ContactController@store')->name('store');
 Route::get('/edit/{id}', 'ContactController@edit')->name('edit');
 
 Route::get('/delete/{id}', 'ContactController@delete')->name('delete');
+
+Route::get('/single_view/{id}', 'ContactController@single_view')->name('single_view');
 
 
 

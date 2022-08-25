@@ -59,7 +59,7 @@ CONTACT APP | CONTACT LIST
 				      <td>{{$contact_list_showed->company}}</td>
 				      
 				      <td>
-				        <a href="/view/{{$contact_list_showed->id}}" class="btcls btn btn-sm btn-info" >VIEW</a>
+				        <a href="{{route('single_view', $contact_list_showed->id)}}" class="btcls btn btn-sm btn-info" >VIEW</a>
 				        @if (Auth::Check())
 
 				        <a href="{{route('edit', $contact_list_showed->id)}}" class="btcls btn btn-sm btn-success">EDIT</a>

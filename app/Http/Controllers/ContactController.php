@@ -27,6 +27,8 @@ class ContactController extends Controller
     }
 
 
+
+
     public function store(Request $request)
     {
         $store_contact = new Contact;
@@ -64,6 +66,15 @@ class ContactController extends Controller
         $del_con_id->delete();
 
         return redirect()->route('contact_list')->with('message', 'Contact deleted succcesfully'); 
+    }
+
+    public function single_view($id)
+    {
+        $single_view_id = Contact::find($id);
+
+        return view('single_view')->with('single_view_id', $single_view_id);
+
+        
     }
 
 }
