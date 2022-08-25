@@ -52,4 +52,18 @@ class ContactController extends Controller
 
     }
 
+    public function edit(Request $request)
+    {
+
+    }
+
+    public function delete($id)
+    {   
+        $del_con_id = Contact::find($id);
+
+        $del_con_id->delete();
+
+        return redirect()->route('contact_list')->with('message', 'Contact deleted succcesfully'); 
+    }
+
 }

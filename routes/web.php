@@ -45,6 +45,10 @@ Route::get('/contact_list', 'ContactController@contact_list')->name('contact_lis
 
 Route::post('/store', 'ContactController@store')->name('store');
 
+Route::get('/edit/{id}', 'ContactController@edit')->name('edit');
+
+Route::get('/delete/{id}', 'ContactController@delete')->name('delete');
+
 
 
 

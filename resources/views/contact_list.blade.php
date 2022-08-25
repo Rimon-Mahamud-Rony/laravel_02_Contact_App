@@ -62,8 +62,8 @@ CONTACT APP | CONTACT LIST
 				        <a href="/view/{{$contact_list_showed->id}}" class="btcls btn btn-sm btn-info" >VIEW</a>
 				        @if (Auth::Check())
 
-				        <a href="" class="btcls btn btn-sm btn-success">EDIT</a>
-				        <a href="" class="btcls btn btn-sm btn-danger">DELETE</a>
+				        <a href="{{route('edit', $contact_list_showed->id)}}" class="btcls btn btn-sm btn-success">EDIT</a>
+				        <a href="{{route('delete', $contact_list_showed->id)}}" class="btcls btn btn-sm btn-danger">DELETE</a>
 				        
 				        @endif
 				      </td>
