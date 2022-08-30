@@ -48,7 +48,9 @@ class ContactController extends Controller
         $store_contact->save();
 
 
-        return redirect()->route('contact_list')->with('message', 'registration completed'); //it works
+        //return redirect()->route('contact_list')->with('message', 'registration completed'); //it works
+
+        return redirect()->back()->with('message', 'registration completed');
 
         //return redirect()->route('creat_contacts');
 

@@ -14,10 +14,16 @@ CONTACT APP|Creat Contacts
 
 <div class="container col-md-6">
 
+	@if (Session::has('message'))
+		   <div id="session_message" class="alert alert-warning" style="border-radius:0px; width:70%; margin-left: 15%;  text-align: center; font-size: 12px;">{{ Session::get('message') }}
+		   </div>
+		   
+	@endif
+
 	<div id="cardbody" class=" card" style="width: 34rem; background-color:white;">
 
 		<div class="card-header " style=" background-color:#1F618D; color: white; font-family: 'Kanit', sans-serif;">
-			+ Add new contact
+			<span>+ Add new contact</span><span style="float:right;"><a class="btn btn-link btn-sm" href="/contact_list" style="color:white;">List of Contacts</a></span>
 		</div>
 
 		<div id="" class="container-fluid col-sm-10" style="font-size:13px;">
@@ -26,7 +32,7 @@ CONTACT APP|Creat Contacts
                             {{ session('status') }}
                         </div>
                     @endif
-		<form method="POST" action="{{route('store')}}">
+		<form method="POST" action="{{route('store')}}" enctype="multipart/form-data">
 			@csrf
 		  <div class="form-group ">
 		  	<p></p>
@@ -37,6 +43,11 @@ CONTACT APP|Creat Contacts
 		  <div class="form-group ">
 		    <label for="exampleInputEmail1">Last Name:</label>
 		    <input type="text" class="form-control form-control-sm" name="l_name">
+		  </div>
+
+		  <div class="form-group ">
+		    <label for="exampleInputEmail1">Display Photo:</label>
+		    <input class="form-control" type="file" name="dp" id="formFile">
 		  </div>
 
 		  <div class="form-group ">

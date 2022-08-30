@@ -24,11 +24,12 @@ CONTACT APP | CONTACT LIST
 
 	@if (Session::has('message'))
 		   <div class="alert alert-warning" style="border-radius:0px; width:70%; margin-left: 15%;  text-align: center; font-size: 12px;">{{ Session::get('message') }}</div>
-		@endif
+	@endif
 
 	<div  id="contact_list" style="margin-left: 3%; margin-right: 3%; background-color:white;">
 		<div class="card-header py-1" style=" font-family: 'Kanit', sans-serif; background-color:#1F618D; ">
-			<a href="/creat_contacts" class="def btn btn-sm fa fa-plus-circle" style="color:white;"> ADD A NEW CONTACT</a>
+
+			<a class="btn btn-link btn-sm fa fa-plus-circle" href="/creat_contacts" style="color:white;">&nbsp;Add new Contacts</a>
 		</div>
 
 		<table class=" table table-sm  table-bordered table-hover">
