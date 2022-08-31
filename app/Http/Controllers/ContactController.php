@@ -27,10 +27,47 @@ class ContactController extends Controller
     }
 
 
-
-
     public function store(Request $request)
     {
+        /*
+            guessExtension()
+            getMimeType()
+            store()
+            asStore()
+            storePublicly()
+            Move()
+            getClinetOriginalName()
+            getclientMimetype()
+            guessClientExtension()
+            getSize()
+            getError()
+            isValid()
+        
+
+        $test= $request->file('dp')->isValid();
+
+        dd($test);
+
+        */
+
+        
+        $set_image_name = time().'-'.$request->f_name.'-'.$request->f_name.'.'.$request->dp->extension();
+
+        //dd($set_image_name);
+
+        //$patha= $set_image_name;
+
+        $request->dp->move(public_path('img'),$set_image_name);
+
+        //dd($test);
+
+        /*$request->validate([
+
+            'dp'=>'required | mimes: jpg, png, jpeg | max: 5048'
+        ]);*/
+
+        //dd($request->all());
+
         $store_contact = new Contact;
 
         $store_contact->first_name = $request->f_name;
@@ -44,6 +81,8 @@ class ContactController extends Controller
         $store_contact->address = $request->address;
 
         $store_contact->company = $request->company;
+
+        $store_contact->image_path = $set_image_name;
 
         $store_contact->save();
 
@@ -76,7 +115,6 @@ class ContactController extends Controller
 
         return view('single_view')->with('single_view_id', $single_view_id);
 
-        
     }
 
 }

@@ -24,10 +24,10 @@ CONTACT APP | CONTACT LIST
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              Name: <span style="color:#2ECC71;"><b>{{$single_view_id->first_name}}{{" "}}{{$single_view_id->last_name}}</b>
+              <span style="color:#1F618D;"><b>{{$single_view_id->first_name}}{{" "}}{{$single_view_id->last_name}}</b>
             </li>
             <li class="list-group-item" style="text-align:center;">
-              <img src="{{asset('img/admin.jpg')}}" height="150" width="150">
+              <img src="{{asset('img/'.$single_view_id->image_path) }}" height="150" width="150">
             </li>
             <li class="list-group-item">Mobile: +880{{$single_view_id->phone}}</li>
           </ul>
@@ -55,11 +55,12 @@ CONTACT APP | CONTACT LIST
             <li class="list-group-item">Blood Group: A+</li>
             <li class="list-group-item">Date of Birth: 22-06-1994</li>
           </ul>
+          <br>
+          <br>
         </div>
       </div>
 
     </div>
-
 </div>
 
 @endsection

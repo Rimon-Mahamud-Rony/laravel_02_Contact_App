@@ -44,12 +44,14 @@ CONTACT APP|Creat Contacts
 		    <label for="exampleInputEmail1">Last Name:</label>
 		    <input type="text" class="form-control form-control-sm" name="l_name">
 		  </div>
+	<!-- image-----------------------image-----------------------image------------------------image------------------ -->
 
 		  <div class="form-group ">
 		    <label for="exampleInputEmail1">Display Photo:</label>
 		    <input class="form-control" type="file" name="dp" id="formFile">
 		  </div>
-
+	
+	<!-- image-----------------------image-----------------------image------------------------image------------------ -->
 		  <div class="form-group ">
 		    <label for="exampleInputEmail1">Email address:</label>
 		    <input type="email" class="form-control form-control-sm" name="email">
