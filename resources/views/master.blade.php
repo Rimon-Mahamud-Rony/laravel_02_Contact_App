@@ -56,7 +56,7 @@
     <ul class="navbar-nav mr-auto">
       <li class="">
        
-        <a class="kan nav-link" href="/index">Company</a>
+        <a class="kan nav-link" href="/company_list">Companies</a>
       </li>
       <li class="nav-item ">
        
@@ -69,10 +69,10 @@
         <a class="kan nav-link" href="{{route('home')}}">Dashboard/Home</a>
       </li>
       <li class="nav-item">
-        <a class="kan nav-link" href="/creat_contacts">Add Contacts</a>
+        <a class="kan nav-link" href="/creat_contacts">Add Contact</a>
       </li>
       <li class="nav-item">
-        <a class="kan nav-link" href="/index">Add Company</a>
+        <a class="kan nav-link" href="/creat_company">Add Company</a>
       </li>
       @endif
       </ul>

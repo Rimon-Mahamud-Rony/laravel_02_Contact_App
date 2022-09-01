@@ -33,7 +33,12 @@ Route::get('/single_view', function () {
 Route::get('/allcontacts', function () {
     return view('allcontacts');
 });
+
 */
+Route::get('/creat_company', function () {
+    return view('creat_company');
+});
+
 
 
 Route::get('/creat_contacts', 'CompanyController@list_company_for_add_contact')->name('list_company');
@@ -47,7 +52,7 @@ Route::get('/contact_list', 'ContactController@contact_list')->name('contact_lis
 
 //Route::get('/contact_list', 'ContactController@contact_list')->name('contact_list');
 
-Route::post('/store', 'ContactController@store')->name('store');
+Route::post('/store', 'ContactController@store')->name('store'); 
 
 Route::get('/edit/{id}', 'ContactController@edit')->name('edit');
 
@@ -58,6 +63,21 @@ Route::get('/single_view/{id}', 'ContactController@single_view')->name('single_v
 
 
 
+//company---------------------------------------------------------------------------------------------------
+
+Route::get('/company_list', 'CompanyController@Company_list')->name('Company_list');
+
+Route::post('/stroe_company', 'CompanyController@stroe_company')->name('stroe_company');
+
+Route::get('/delete_company/{id}', 'CompanyController@delete_company')->name('delete_company');
+
+Route::get('/edit_company/{id}', 'CompanyController@edit_company')->name('edit_company');
+
+Route::post('/update_company/{id}', 'CompanyController@update_company')->name('update_company');
+
+
+
+//Authentication...............................................................................................
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

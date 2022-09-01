@@ -33,7 +33,6 @@ ABC COMPANY | CONTACT APP
                         </tr>
                     </tbody>            
                 </table>
-
         </div>
 
         <div id="right" class="container-fluid col-sm-7" style="float: right; margin-top: -2%;">
