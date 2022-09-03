@@ -25,7 +25,7 @@ CONTACT APP|Creat Company
 	<div id="cardbody" class=" card" style="width: 34rem; background-color:white;">
 
 		<div class="card-header " style=" background-color:#1F618D; color: white; font-family: 'Kanit', sans-serif;">
-			<span>+ Add new contact</span><span style="float:right;"><a class="btn btn-link btn-sm" href="/company_list" style="color:white;">List of Contacts</a></span>
+			<span class="btn btn-link btn-sm"  style="color:white;">+ Add new contact</span><span style="float:right;"><a class="btn btn-link btn-sm" href="/company_list" style="color:white;">Company List</a></span>
 		</div>
 
 		<div id="" class="container-fluid col-sm-10" style="font-size:13px;">

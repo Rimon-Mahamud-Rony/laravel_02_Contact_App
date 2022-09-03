@@ -4,6 +4,8 @@
 CONTACT APP|Creat Contacts
 @endsection
 
+<link rel="stylesheet" type="text/css" href="{{asset('jq/jquery-ui.min.css')}}">
+
 @section('creat_contacts')
 
 <div class="container-fluid">
@@ -12,7 +14,7 @@ CONTACT APP|Creat Contacts
 </div>
 @if (Auth::Check())
 
-<div class="container col-md-6">
+<div class="container">
 
 	@if (Session::has('message'))
 		   <div id="session_message" class="alert alert-warning" style="border-radius:0px; width:70%; margin-left: 15%;  text-align: center; font-size: 12px;">{{ Session::get('message') }}
@@ -20,13 +22,8 @@ CONTACT APP|Creat Contacts
 		   
 	@endif
 
-	<div id="cardbody" class=" card" style="width: 34rem; background-color:white;">
+	<div id="cardbody" class="container-fluid" style="font-size: 12px;">
 
-		<div class="card-header " style=" background-color:#1F618D; color: white; font-family: 'Kanit', sans-serif;">
-			<span>+ Add new contact</span><span style="float:right;"><a class="btn btn-link btn-sm" href="/contact_list" style="color:white;">List of Contacts</a></span>
-		</div>
-
-		<div id="" class="container-fluid col-sm-10" style="font-size:13px;">
 					@if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -34,56 +31,131 @@ CONTACT APP|Creat Contacts
                     @endif
 		<form method="POST" action="{{route('store')}}" enctype="multipart/form-data">
 			@csrf
-		  <div class="form-group ">
-		  	<p></p>
-		    <label for="exampleInputEmail1">First Name:</label>
-		    <input type="text" class="form-control form-control-sm" name="f_name">
-		  </div>
 
-		  <div class="form-group ">
-		    <label for="exampleInputEmail1">Last Name:</label>
-		    <input type="text" class="form-control form-control-sm" name="l_name">
-		  </div>
-	<!-- image-----------------------image-----------------------image------------------------image------------------ -->
+			<div id="full_form_section" class="container-fluid">
+				
+				<div id="right" class="card" style="width: 24rem; float:left;">
+						<div class="card-header " style=" background-color:#1F618D; color: white; font-family: 'Kanit', sans-serif;">
+							<span>Contact Info</span>
+						</div>
+					<ul class="list-group">
+						<li class="list-group-item py-1">
+							<div class="form-group">
+						    	<label for="exampleInputEmail1">First Name:</label>
+						    	<input type="text" class="form-control form-control-sm" name="f_name">
+						  	</div>
 
-		  <div class="form-group ">
-		    <label for="exampleInputEmail1">Display Photo:</label>
-		    <input class="form-control" type="file" name="dp" id="formFile">
-		  </div>
-	
-	<!-- image-----------------------image-----------------------image------------------------image------------------ -->
-		  <div class="form-group ">
-		    <label for="exampleInputEmail1">Email address:</label>
-		    <input type="email" class="form-control form-control-sm" name="email">
-		  </div>
+						  	<div class="form-group">
+						    	<label for="exampleInputEmail1">Last Name:</label>
+						    	<input type="text" class="form-control form-control-sm" name="l_name">
+						  	</div>
+						<!-- image-----------------------image-----------------------image----------->
 
-		  <div class="form-group ">
-		    <label for="exampleInputEmail1">Phone:</label>
-		    <input type="text" class="form-control form-control-sm" name="phone">
-		  </div>
+						  	<div class="form-group">
+						    	<label for="exampleInputEmail1">Display Photo:</label>
+						    	<input class="form-control form-control-sm" type="file" name="dp" id="formFile">
+						    </div>
+						<!-- image-----------------------image-----------------------image--------------->
+							<div class="form-group">
+					    		<label for="exampleInputEmail1">Phone:</label>
+					    		<input type="text" class="form-control form-control-sm" name="phone">
+					  		</div>
 
-		  <div class="form-group ">
-		    <label for="exampleInputEmail1">Address</label>
-		    <input type="text" class="form-control form-control-sm" name="address">
-		  </div>
+						    <div class="form-group ">
+						    	<label for="exampleInputEmail1">Email address:</label>
+						    	<input type="email" class="form-control form-control-sm" name="email">
+						  	</div>
 
-		  <div class="form-group ">
-		    <label for="exampleFormControlSelect1">Company</label>
-		    <select class="form-control form-control-sm" name="company">
+						  	<div class="form-group ">
+							    <label for="exampleInputEmail1">Address</label>
+							    <input type="text" class="form-control form-control-sm" name="address">
+							</div>
+						</li>
+							
+					</ul>
+				</div>
 
-		      @foreach ($list_company as $list_company)
+				<div class="col-md-1" style="float:left;">
+					<br>
+				</div>
 
-		      <option>{{$list_company->name}}</option>
-		      
-		      @endforeach
-		      
-		    </select>
-		  </div>
-		  <button type="submit" name="contact_submit" class="col-sm-4 btn btn-primary btn-sm">Submit</button>
+				<div id="right" class="card" style="width: 32rem; float:left;">
 
+						<div class="card-header " style=" background-color:#1F618D; color: white; font-family: 'Kanit', sans-serif;">
+							<span>Description</span><span style="float:right;"><a href="/contact_list" style="color:yellow;">Conatct List</a></span>
+						</div>
+					<ul class="list-group">
+						<li class="list-group-item py-1">	
+
+							<div class="form-group ">
+							    <label for="exampleInputEmail1">Skills</label>
+							    <input type="text" class="form-control form-control-sm" name="skill">
+							</div>
+
+							<div class="form-group ">
+							    <label for="exampleInputEmail1">Designation</label>
+							    <input type="text" class="form-control form-control-sm" name="designation">
+							</div>
+
+							<div  class="form-group">
+							    <label for="exampleInputEmail1">Blood Group</label>
+							    <select class="form-control form-control-sm" name="bg">
+							    	<option>A+</option>
+							    	<option>A-</option>
+							    	<option>B+</option>
+							    	<option>B-</option>
+							    	<option>O+</option>
+							    	<option>O-</option>
+							    	<option>AB+</option>
+							    	<option>AB-</option>
+							    </select>
+							</div>
+
+							<div  class="form-group">
+							    <label for="exampleInputEmail1">Date</label>
+							    <input type="text" class="form-control form-control-sm" id="datepicker" name="date">
+							</div>
+
+						  	<div class="form-group ">
+							    <label for="exampleFormControlSelect1">Company</label>
+							    <select class="form-control form-control-sm" name="company">
+
+							      @foreach ($list_company as $list_company)
+
+							      <option>{{$list_company->name}}</option>
+							      
+							      @endforeach
+							      
+							    </select>
+						  	</div>
+
+						  	<div class="form-group ">
+							    <label for="exampleInputEmail1">Previous History</label>
+							    <input type="text" class="form-control form-control-sm" name="prehis">
+							</div>
+					 		
+					 	</li> 
+					</ul>
+				</div>
+				<div class="container-fluid" style="float:left; text-align: center;">
+					<br>
+					<br>
+							<button type="submit" name="contact_submit" class="col-sm-4 btn btn-primary btn-sm">
+					 			Submit
+					 		</button>
+					 		<p>&nbsp;</p>
+
+				</div>
+				<div class="col-md-1" style="float:left;">
+					<br>
+					<br>
+					<br>
+				</div>
+			</div>
 		</form>
+
 		<br>
-		</div>
+		
 	</div>
 </div>
 	<p>&nbsp;</p>
@@ -165,4 +237,20 @@ CONTACT APP|Creat Contacts
 </div>
 @endif
 
+<script  src="{{asset('jq/jquery-3.6.1.min.js')}}"></script>
+<script  src="{{asset('jq/jquery-ui.min.js')}}"></script>
+
+<script>
+	$(document).ready(function(){
+		$('#datepicker').datepicker({
+			dateFormat: "dd-mm-yy",
+			changeMonth: true,
+			changeYear: true,
+			/*maxDate: '600M',
+			minDate: '-600M'*/
+		});
+			
+	}
+	)
+</script>
 @endsection

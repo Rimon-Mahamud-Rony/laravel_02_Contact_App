@@ -33,34 +33,48 @@ ABC COMPANY | CONTACT APP
                         </tr>
                     </tbody>            
                 </table>
+
         </div>
 
-        <div id="right" class="container-fluid col-sm-7" style="float: right; margin-top: -2%;">
+        <style type="text/css">
+            .f{
+                font-size: 13px;
+                font-family: 'Kanit', sans-serif;
+            }
+        </style>
+
+        <div id="right" class="container-fluid col-sm-7" style="float: right;">
             @if(Auth::check()) 
-                <div class="row justify-content-center">
-                    <div class="card alert alert-success divdec" style="width: 25rem; font-family: 'Kanit', sans-serif;">
-                        <a href="{{route('home')}}" style="font-size:20px; color: red;"> Go to your dashboard </a>
-                    </div>
-                </div>
+                
 
             <div class="row justify-content-center">
-
-            
-
-            <div class="card" style="width: 25rem;" style="font-family: 'Sanchez', serif;">
-                
-              <ul class="list-group list-group-flush" style="list-style-type: none;">
-                <li class="list-group-item py-1">Admin Profile</li>
-                <li class="list-group-item alert py-1" style="text-align: center;">
-                      <img src="{{asset('img/admin.jpg')}}" height="150" width="150" style="border-radius: 50%;">
-                </li>
-                <li class="list-group-item alert py-1"><h5>{{"  ".Auth::user()->name }}</h5></li>
-                <li class="list-group-item py-1">{{"  ".Auth::user()->email }}</li>
-                <li class="list-group-item py-1">Phone</li>
-                <li class="list-group-item py-1">Admin's ID</li>
-              </ul>
+                <div class="f card" style=" width: 18rem;">
+                    
+                        <a class="f card-header"  style="background-color:#1F618D; color:white;">
+                          Admin Profile
+                        </a>
+                   
+                  <ul class="f list-group list-group-flush">
+                    <li class="f list-group-item alert py-1" style="text-align: center;">
+                          <img src="{{asset('img/admin.jpg')}}" height="150" width="150" style="border-radius: 5%;">
+                    </li>
+                    <li class="f list-group-item alert" style="font-size:12px;">
+                        <span style="color:green;">&#9863;</span>{{"  ".Auth::user()->name }}
+                    </li>
+                    <li class="f list-group-item" style="font-size:12px;">
+                        <span style="color:green;">&#9993;</span> {{"  ".Auth::user()->email }}
+                    </li>
+                    <li class="f list-group-item" style="font-size:12px;"><span style="color:green;">&phone;</span>+8801862117118</li>
+                    <li class="f list-group-item" style="font-size:12px;"><span style="color:green;">&#9873;</span>ASH16010{{Auth::user()->id }}</li>
+                  </ul>
+                </div>
+            <br>
             </div>
             <br>
+            <div class="row justify-content-center">
+                <div class="f card alert alert-success divdec" style="background-color:#1F618D;  width: 18rem; ">
+                    <a href="{{route('home')}}" style="color: white;"> Go to your dashboard </a>
+                </div>
             </div>
                     
             @else

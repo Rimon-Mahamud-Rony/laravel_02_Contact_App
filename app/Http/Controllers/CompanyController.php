@@ -103,4 +103,12 @@ class CompanyController extends Controller
         return view('creat_contacts')->with('list_company', $list_company);
     }
 
+    public function test()
+    {
+        //$date = date('d-m-Y H:i:s');
+
+        $date = Carbon\Carbon::now();
+        dd($date);
+    }
+
 }

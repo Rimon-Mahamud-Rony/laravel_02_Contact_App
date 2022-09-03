@@ -39,10 +39,16 @@ Route::get('/creat_company', function () {
     return view('creat_company');
 });
 
+//____________________________________________________________________________________
 
+Route::get('/test', 'CompanyController@test')->name('test');
+
+//______________________________________________________________________________________
+
+
+//contacts route--------------------------------------------------------------------------------------------------->
 
 Route::get('/creat_contacts', 'CompanyController@list_company_for_add_contact')->name('list_company');
-
 
 Route::get('/index', 'CompanyController@show_all_company')->name('show_all_company');
 
@@ -62,8 +68,7 @@ Route::get('/single_view/{id}', 'ContactController@single_view')->name('single_v
 
 
 
-
-//company---------------------------------------------------------------------------------------------------
+//company route--------------------------------------------------------------------------------------------------->
 
 Route::get('/company_list', 'CompanyController@Company_list')->name('Company_list');
 
@@ -77,7 +82,8 @@ Route::post('/update_company/{id}', 'CompanyController@update_company')->name('u
 
 
 
-//Authentication...............................................................................................
+//Authentication route-------------------------------------------------------------------------------------------->
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -29,7 +29,12 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
+        
         /*
+        $date= $request->date;
+
+        dd($date);
+        
             guessExtension()
             getMimeType()
             store()
@@ -51,7 +56,7 @@ class ContactController extends Controller
         */
 
         
-        $set_image_name = time().'-'.$request->f_name.'-'.$request->f_name.'.'.$request->dp->extension();
+        $set_image_name = time().'-'.$request->f_name.'-'.$request->l_name.'.'.$request->dp->extension();
 
         //dd($set_image_name);
 
@@ -83,6 +88,18 @@ class ContactController extends Controller
         $store_contact->company = $request->company;
 
         $store_contact->image_path = $set_image_name;
+
+        //----------------------------------------
+
+        $store_contact->skill = $request->skill;
+
+        $store_contact->designation = $request->designation;
+
+        $store_contact->bg = $request->bg;
+
+        $store_contact->dob = $request->date;
+
+        $store_contact->prehis = $request->prehis;
 
         $store_contact->save();
 
