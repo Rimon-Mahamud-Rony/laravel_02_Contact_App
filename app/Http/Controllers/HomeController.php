@@ -30,11 +30,13 @@ class HomeController extends Controller
 
     public function last_employee()
     {
-        //$total_employee = Contact::all()->count();
+        $total_employee = Contact::all()->count();
 
         $last_employee = Contact::latest()->first();
 
-        return view('home')->with('last_employee', $last_employee);
+        return view('home')
+            ->with('last_employee', $last_employee)
+            ->with('total_employee', $total_employee); 
     }
 
 

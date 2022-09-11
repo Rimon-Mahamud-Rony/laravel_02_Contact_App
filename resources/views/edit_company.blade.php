@@ -1,10 +1,10 @@
 @extends('master')
 
 @section('title')
-CONTACT APP|Creat Company
+CONATCT APP | EDIT COMPANY
 @endsection
 
-@section('creat_contacts')
+@section('content')
 
 <div class="container-fluid">
 	<br>

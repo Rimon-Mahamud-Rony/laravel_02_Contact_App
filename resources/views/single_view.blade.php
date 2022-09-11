@@ -1,10 +1,10 @@
 @extends('master')
 
 @section('title')
-CONTACT APP | CONTACT LIST
+CONATCT APP | VIEW CONTACT
 @endsection
 
-@section('contact_list')
+@section('content')
 
 <style type="text/css">
   .f{

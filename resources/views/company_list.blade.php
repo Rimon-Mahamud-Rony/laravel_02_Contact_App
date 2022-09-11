@@ -1,6 +1,11 @@
 @extends('master')
 
-@section('index')
+@section('title')
+CONATCT APP | COMPANIES
+@endsection
+
+@section('content')
+
 <div class="container-fluid">
 	<br>
 	<h6 align="center" class="alert alert-success" style="border-radius: 0px; font-family: 'Sanchez', serif; color:black; font-size: 14px;">Contact Management: List of all the companies</h6>
@@ -24,9 +29,11 @@
 
 
 <div id="list of all companies" style="margin-left: 10%; margin-right: 10%;">
+  @if(Auth::user())
 	<div class="container" align="left">
 		<a href="/creat_company" class="def btn btn-sm btn-success fa fa-plus-circle" > ADD A NEW COMPANY</a>
 	</div>
+  @endif
 
   
 	<br>
@@ -39,7 +46,9 @@
       <th scope="col">Company Address</th>
       <th scope="col">Company Website</th>
       <th scope="col">Company Email</th>
+       @if (Auth::Check())
       <th scope="col">Action</th>
+      @endif
     </tr>
   </thead>
   <tbody>
@@ -56,15 +65,12 @@
       <td>{{$list_company->address}}</td>
       <td>{{$list_company->website}}</td>
       <td>{{$list_company->email}}</td>
+      @if (Auth::Check())
       <td>
-      	<a href="" class="btcls btn btn-sm btn-info" >VIEW</a>
-        @if (Auth::Check())
-
       	<a href="{{route('edit_company', $list_company->id)}}" class="btcls btn btn-sm btn-success">EDIT</a>
       	<a href="{{route('delete_company', $list_company->id)}}" class="btcls btn btn-sm btn-danger">DELETE</a>
-        
-        @endif
       </td>
+      @endif
     </tr>
  @endforeach
   </tbody>

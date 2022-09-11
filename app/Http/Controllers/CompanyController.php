@@ -53,7 +53,7 @@ class CompanyController extends Controller
             'name'=>'required | string | max:50',
             'email'=>'required | string ',
             'website'=>'required | string ',
-            'mobile'=>'required | unique:companies,mobile| max:13',
+            'mobile'=>'required | max:13',
 
         ]);
         

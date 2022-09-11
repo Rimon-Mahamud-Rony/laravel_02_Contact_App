@@ -1,8 +1,10 @@
 @extends('master')
 
 @section('title')
-CONTACT APP|Creat Contacts
+CONATCT APP | ADD CONTACTS
 @endsection
+
+@section('content')
 
 <!--link rel="stylesheet" type="text/css" href="{{asset('jq/jquery-ui.min.css')}}"-->
 

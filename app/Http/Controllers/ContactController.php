@@ -24,7 +24,9 @@ class ContactController extends Controller
 
         //$contact_list = Contact:: paginate(5);
 
-        $contact_list=DB::table('contacts')->paginate(3);
+        //$contact_list=DB::table('contacts')->paginate(3);
+
+        $contact_list=Contact::orderBy('id', 'desc')->paginate(3);
 
         //$dbtest=Contact::paginate(2);
 

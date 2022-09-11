@@ -55,7 +55,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="">
-       
+        <a class="kan nav-link" href="/index"><b style="color:blue;">All Information</b></a>
+      </li>
+      <li class="">
         <a class="kan nav-link" href="/company_list">Companies</a>
       </li>
       <li class="nav-item ">
@@ -92,6 +94,15 @@
                   @csrf
               </form>
       </li>
+      @else
+
+      <ul class="navbar-nav mr-right" >
+      <li class="nav-item">
+         <a class="form-control mr-sm-3" href="/login" style="color: red; border-radius: 0px; font-size: 15px;"><span class="fa fa-sign-out">{{ __('Login') }}</span>
+         </a>
+
+      </li>
+
       @endif
     </ul>
     

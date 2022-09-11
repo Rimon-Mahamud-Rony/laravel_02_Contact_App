@@ -1,10 +1,12 @@
 @extends('master')
 
 @section('title')
-CONTACT APP | CONTACT LIST
+CONATCT APP | CONTACTS
 @endsection
 
-@section('contact_list')
+@section('content')
+
+@php $i=0; @endphp
 
 	<div class="container-fluid">
 		<br>
@@ -28,15 +30,17 @@ CONTACT APP | CONTACT LIST
 	@endif
 
 	<div  id="contact_list" style="margin-left: 3%; margin-right: 3%; background-color:white;">
+		@if(Auth::user())
 		<div class="card-header py-1" style=" font-family: 'Kanit', sans-serif; background-color:#1F618D; ">
-
 			<a class="btn btn-link btn-sm fa fa-plus-circle" href="/creat_contacts" style="color:white;">&nbsp;Add new Contacts</a>
 		</div>
+		@endif
 
 		<table class=" table table-sm  table-bordered table-hover">
-		  <thead class="def alert alert-dark">
+		  <thead class="def alert alert-success">
 		    <tr>
-		      <th scope="col" >S/N</th>
+		      <th scope="col" >Serial</th>
+		      <th scope="col" >ID</th>
 		      <th scope="col"> Name</th>
 		      <th scope="col"> Email</th>
 		      <th scope="col"> Phone</th>
@@ -47,13 +51,14 @@ CONTACT APP | CONTACT LIST
 		  </thead>
 		  	<tbody>
 
-				@php $i=0; @endphp
+				
 
 				@foreach ($contact_list as $contact_list_showed) 
 
 				  @php $i=$i+1; @endphp
-				    <tr class="def">
-				      <th scope="row" >{{$i}}</th>
+				    <tr style="font-size: 12px;">
+				      <td scope="row" >{{$i}}</td>
+				      <th>{{$contact_list_showed->id}}</th>
 				      <td>{{$contact_list_showed->first_name}}{{" "}}{{$contact_list_showed->last_name}}</td>
 				      <td>{{$contact_list_showed->email}}</td>
 				      <td>{{$contact_list_showed->phone}}</td>
@@ -79,6 +84,7 @@ CONTACT APP | CONTACT LIST
 	{{ $contact_list->links() }}
 	<br>
 </div> 
+
 <div>
 	<br>
 </div>

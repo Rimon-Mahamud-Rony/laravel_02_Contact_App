@@ -1,10 +1,10 @@
 @extends('master')
 
 @section('title')
-CONTACT APP | CONTACT LIST
+CONATCT APP | EDIT CONTACT
 @endsection
 
-@section('contact_list')
+@section('content')
 
 <div class="jumbotron jumbotron-fluid">
   <h1 class="display-4" style="color:red; margin-left:3%;">EDIT CONTACTS IS NOT AVAILABLE RIGHT NOW!!</h1>

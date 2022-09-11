@@ -1,6 +1,11 @@
 @extends('master')
 
-@section('index')
+@section('title')
+CONATCT APP | ALL INFORMATION
+@endsection
+
+@section('content')
+
 <div class="container-fluid">
 	<br>
 	<h6 align="center" class="alert alert-success" style="border-radius: 0px; font-family: 'Sanchez', serif; color:black; font-size: 14px;">Contact Management: List of all the companies</h6>
@@ -9,7 +14,7 @@
 
 <style type="text/css">
 	.def{
-		font-size: 12px;
+		font-size: 13px;
 	}
 	.btcls
 	{
@@ -56,10 +61,10 @@
   </div>
 </div>
 
-<table class="table table-sm table-bordered table-hover">
+<table class="table table-sm table-bordered table-hover" style="background-color:white;">
     @php $sn=0; @endphp
   <thead class="def">
-    <thead class="def">
+    <thead class="def alert alert-success">
       <th scope="col" >S/N</th>
       <th scope="col">View Contact</th>
       <th scope="col">Contact Name</th>
