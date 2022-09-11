@@ -24,36 +24,40 @@
 
 <div id="list of all companies">
 	
-  
-<div id="sort" align="right">
-  
-  <form  class="form-inline my-2 my-lg-0" type="get" action="{{URL::current()}}">
-    @csrf
-    <input  class="form-control mr-sm-2" type="search" name="Search" placeholder="Search" aria-label="Search" required>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-  <a href="{{URL::current()}}">Default</a>
-      <a href="{{URL::current()."?sort=az"}}"></a>
-    <label>Sort By Name: </label>
-    <select class=" form-select form-select-sm" onchange="window.location.href=this.value;">
-      <option>Default</option>
-      <option value="{{URL::current()."?sort=az"}}">Name: A->Z</option>
-      <option value="{{URL::current()."?sort=za"}}">Name: Z->A</option>
-    </select>
-
-    <label>Sort By Company: </label>
-    
-    <select class=" form-select form-select-sm"  onchange="window.location.href=this.value;">
-        <option>Default</option>
-      @foreach($company_name as $com)
-        <option value="{{URL::current()."?sort=$com->id"}}">{{$com->name}}</option>
-      @endforeach
-    </select>
+<div class="container col-md-8" style="float:right;">
+    <div class="row">
+    <div class="col-sm-2">
+       <a href="{{URL::current()}}">All information List</a>
+    </div>
+    <div class="col-sm-2">
+        <select class="form-control form-control-sm"  onchange="window.location.href=this.value;">
+          <option>Sort By Name: </option>
+          <option value="{{URL::current()."?sort=az"}}">Name: A->Z</option>
+          <option value="{{URL::current()."?sort=za"}}">Name: Z->A</option>
+        </select>
+    </div>
+    <div class="col-sm-3">
+      <select class="form-control form-control-sm"  onchange="window.location.href=this.value;">
+          <option>Sort By Company: </option>
+        @foreach($company_name as $com)
+          <option value="{{URL::current()."?sort=$com->id"}}">{{$com->name}}</option>
+        @endforeach
+      </select>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+      <form  class="form-inline my-2 my-lg-0" type="get" action="{{URL::current()}}">
+        @csrf
+        <input  class="form-control form-control-sm mr-sm-2" type="search" name="Search" placeholder="Search" aria-label="Search" required>
+        <button class="btn btn-sm btn-outline-success my-3 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+    </div>
   </div>
+</div>
 
 <table class="table table-sm table-bordered table-hover">
-    
-  
+    @php $sn=0; @endphp
   <thead class="def">
     <thead class="def">
       <th scope="col" >S/N</th>
@@ -68,8 +72,10 @@
       <th scope="col">Company Phone</th>
     </thead>
     @foreach($dbtest as $data)
+
+    @php $sn=$sn+1; @endphp
     <tr class="def">
-        <td>#</td>
+        <td>{{$sn}}</td>
         <td><a href="single_view/{{$data->contact_id}}">View</a></td>
         <td>{{$data->contact_name.' '.$data->contactlast_name}}</a></td>
         <td>{{$data->contact_adress}}</td>
@@ -82,6 +88,8 @@
     </tr>
     @endforeach
   </thead>
+
+  
   <tbody>
 
 

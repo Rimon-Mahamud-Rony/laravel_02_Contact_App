@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Contact;
 
+use Illuminate\Support\Facades\DB;
+
 use Session;
 
 class ContactController extends Controller
@@ -20,7 +22,11 @@ class ContactController extends Controller
     public function contact_list()
     {
 
-        $contact_list = Contact::all()->sortBy("first_name");
+        //$contact_list = Contact:: paginate(5);
+
+        $contact_list=DB::table('contacts')->paginate(3);
+
+        //$dbtest=Contact::paginate(2);
 
         return view('contact_list')->with('contact_list', $contact_list);
 
@@ -146,7 +152,7 @@ class ContactController extends Controller
     }*/
 
 
-    public function search(Request $request)
+    /*public function search(Request $request)
     {
         //dd("searching.... ");
 
@@ -160,6 +166,6 @@ class ContactController extends Controller
 
         dd($info);
 
-    }
+    }*/
 
 }

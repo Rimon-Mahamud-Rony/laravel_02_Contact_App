@@ -5,6 +5,7 @@ CONTACT APP | CONTACT LIST
 @endsection
 
 @section('contact_list')
+
 	<div class="container-fluid">
 		<br>
 		<h6 align="center" class="alert alert-success" style="border-radius: 0px; font-family: 'Sanchez', serif; color:black; font-size: 14px;">Contact Management: List of all the contacts</h6>
@@ -70,7 +71,17 @@ CONTACT APP | CONTACT LIST
 				      </td>
 				    </tr>
 				@endforeach
-			</tbody>
 		</table>
 	</div>
+</tbody>
+
+<div class="container">
+	{{ $contact_list->links() }}
+	<br>
+</div> 
+<div>
+	<br>
+</div>
+	
+
 @endsection

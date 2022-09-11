@@ -171,6 +171,7 @@ class CompanyController extends Controller
         //dd($dbtest); return View::make('pages.index')
 
         //return $dbtest;
+        //$dbtest=Contact::paginate(2);
 
         $company_name=Company::all();
 
