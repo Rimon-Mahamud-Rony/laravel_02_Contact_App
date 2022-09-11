@@ -122,6 +122,7 @@ class CompanyController extends Controller
     public function dbtest(Request $request)
     {
 
+
         $sorting_as = request('sort');
 
         $search_text = $request->Search;

@@ -26,9 +26,10 @@
 	
   
 <div id="sort" align="right">
-  <form class="form-inline my-2 my-lg-0" type="get" action="{{URL::current()}}">
+  
+  <form  class="form-inline my-2 my-lg-0" type="get" action="{{URL::current()}}">
     @csrf
-    <input class="form-control mr-sm-2" type="search" name="Search" placeholder="Search" aria-label="Search">
+    <input  class="form-control mr-sm-2" type="search" name="Search" placeholder="Search" aria-label="Search" required>
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
   <a href="{{URL::current()}}">Default</a>
@@ -90,6 +91,9 @@
   </tbody>
 </table>
 </div>
+
+
+
 
 
 
