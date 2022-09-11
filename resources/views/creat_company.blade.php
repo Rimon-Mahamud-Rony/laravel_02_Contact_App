@@ -62,6 +62,11 @@ CONTACT APP|Creat Company
 		  </div>
 
 		  <div class="form-group ">
+		    <label for="exampleInputEmail1">Mobile:</label>
+		    <input type="text" class="form-control form-control-sm" name="mobile">
+		  </div>
+
+		  <div class="form-group ">
 		    <label for="exampleInputEmail1">Website</label>
 		    <input type="text" class="form-control form-control-sm" name="website">
 		  </div>

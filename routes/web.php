@@ -50,7 +50,34 @@ Route::get('/test', 'CompanyController@test')->name('test');
 
 Route::get('/creat_contacts', 'CompanyController@list_company_for_add_contact')->name('list_company');
 
-Route::get('/index', 'CompanyController@show_all_company')->name('show_all_company');
+//Route::get('/index.com', 'CompanyController@show_all_company')->name('show_all_company');
+
+
+Route::get('/index', 'CompanyController@dbtest')->name('dbtest');
+
+//====
+
+//Route::get('/index.link', 'CompanyController@link')->name('link');
+
+//Route::get('link/{key}', $CompanyController . 'link');
+
+
+/*Route::get('/index',function()
+{
+    $test = request('sort');
+
+    /*return view('index',[
+            'test'=>$test
+    ])
+
+    dd($test);
+});*/
+
+
+//==
+//Route::get('/search', 'ContactController@search')->name('search');
+//==
+
 
 Route::get('/all_contacts', 'CompanyController@all_contacts')->name('all_contacts'); 
 
@@ -81,9 +108,17 @@ Route::get('/edit_company/{id}', 'CompanyController@edit_company')->name('edit_c
 Route::post('/update_company/{id}', 'CompanyController@update_company')->name('update_company');
 
 
+//functional action--------------------------------------------------------------------------------------------------->
+
+Route::get('home', 'ContactController@last_action')->name('last_action');
+
 
 //Authentication route-------------------------------------------------------------------------------------------->
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'last_employee'])->name('home');
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'last_action'])->name('last_action');

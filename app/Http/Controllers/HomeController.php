@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Contact;
+
 class HomeController extends Controller
 {
     /**
@@ -25,4 +27,16 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function last_employee()
+    {
+        //$total_employee = Contact::all()->count();
+
+        $last_employee = Contact::latest()->first();
+
+        return view('home')->with('last_employee', $last_employee);
+    }
+
+
 }
+

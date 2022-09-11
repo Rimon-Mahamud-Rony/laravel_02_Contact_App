@@ -27,12 +27,15 @@
 	<div class="container" align="left">
 		<a href="/creat_company" class="def btn btn-sm btn-success fa fa-plus-circle" > ADD A NEW COMPANY</a>
 	</div>
+
+  
 	<br>
 <table class="table table-sm table-striped table-bordered table-hover">
   <thead class="def alert alert-success">
     <tr>
       <th scope="col" >S/N</th>
       <th scope="col">Company Name</th>
+      <th scope="col">Company Contact Number</th>
       <th scope="col">Company Address</th>
       <th scope="col">Company Website</th>
       <th scope="col">Company Email</th>
@@ -49,6 +52,7 @@
     <tr class="def">
       <th scope="row" >{{$i}}</th>
       <td>{{$list_company->name}}</td>
+      <td>{{$list_company->mobile}}</td>
       <td>{{$list_company->address}}</td>
       <td>{{$list_company->website}}</td>
       <td>{{$list_company->email}}</td>

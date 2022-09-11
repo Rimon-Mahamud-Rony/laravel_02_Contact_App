@@ -34,6 +34,12 @@ ABC COMPANY | CONTACT APP
                     </tbody>            
                 </table>
 
+                <div class="">
+                    <div class="f card alert alert-success divdec" style="background-color:#1F618D;  width: 18rem; ">
+                        <a href="{{route('home')}}" style="color: white;"> Go to your dashboard </a>
+                    </div>
+                </div>
+
         </div>
 
         <style type="text/css">
@@ -44,9 +50,9 @@ ABC COMPANY | CONTACT APP
         </style>
 
         <div id="right" class="container-fluid col-sm-7" style="float: right;">
+            
             @if(Auth::check()) 
                 
-
             <div class="row justify-content-center">
                 <div class="f card" style=" width: 18rem;">
                     
@@ -56,26 +62,25 @@ ABC COMPANY | CONTACT APP
                    
                   <ul class="f list-group list-group-flush">
                     <li class="f list-group-item alert py-1" style="text-align: center;">
-                          <img src="{{asset('img/admin.jpg')}}" height="150" width="150" style="border-radius: 5%;">
+                          <img src="{{asset('img/rimon.jpg')}}" height="220"  style="border-radius: 0%;">
                     </li>
                     <li class="f list-group-item alert" style="font-size:12px;">
-                        <span style="color:green;">&#9863;</span>{{"  ".Auth::user()->name }}
+                        <p><span style="color:green;">&#9863;</span>{{"  ".Auth::user()->name }}</p>
+                    
+                    
+                        <p><span style="color:green;">&#9993;</span> {{"  ".Auth::user()->email }}</p>
+                   
+                        <p><span style="color:green;">&phone;</span>+8801862117118</p>
+                    
+                        <p><span style="color:green;">&#9873;</span>ASH16010{{Auth::user()->id }}</p>
                     </li>
-                    <li class="f list-group-item" style="font-size:12px;">
-                        <span style="color:green;">&#9993;</span> {{"  ".Auth::user()->email }}
-                    </li>
-                    <li class="f list-group-item" style="font-size:12px;"><span style="color:green;">&phone;</span>+8801862117118</li>
-                    <li class="f list-group-item" style="font-size:12px;"><span style="color:green;">&#9873;</span>ASH16010{{Auth::user()->id }}</li>
+                   
                   </ul>
                 </div>
             <br>
             </div>
             <br>
-            <div class="row justify-content-center">
-                <div class="f card alert alert-success divdec" style="background-color:#1F618D;  width: 18rem; ">
-                    <a href="{{route('home')}}" style="color: white;"> Go to your dashboard </a>
-                </div>
-            </div>
+            
                     
             @else
 

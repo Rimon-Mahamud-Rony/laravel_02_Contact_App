@@ -34,24 +34,20 @@ CONTACT APP | CONTACT LIST
               <label style="color:green;">Name: </label>
               <h6 style="color:#1F618D;">{{$single_view_id->first_name}}{{" "}}{{$single_view_id->last_name}}</h6>
             </li>
-            <li class="list-group-item py-1" style="text-align:center;">
-              <img src="{{asset('img/'.$single_view_id->image_path) }}" height="180"  style="border-radius: 5%;">
+            <li class="list-group-item py-1" style="text-align:center; ">
+              <img src="{{asset('img/'.$single_view_id->image_path) }}" height="250"  style="border-radius: 4%;">
             </li>
             <li class="f list-group-item py-1">
                 <label style="color:green;">Mobile: </label>
-                <h6>{{$single_view_id->phone}}</h6>
-            </li>
-            <li class="f list-group-item py-1">
+                <p>{{$single_view_id->phone}}</p>
                 <label style="color:green;">Email: </label>
-                <h6>{{$single_view_id->email}}</h6>
-            </li>
-            <li class="f list-group-item py-1">
+                <p>{{$single_view_id->email}}</p>
                 <label style="color:green;">Address: </label>
-                <h6>{{$single_view_id->address}}</h6>
+                <p>{{$single_view_id->address}}</p>
             </li>
             <br>
-          <br>
-          <br>
+            <br>
+            <br>
           </ul>
         </div>
       </div>
@@ -68,20 +64,20 @@ CONTACT APP | CONTACT LIST
           </div>
           
           <ul class="list-group">
-              <li class="list-group-item py-1">
-                  <label>Skills:</label>
-                  <h6>{{$single_view_id->skill}}</h6>
+              <li class="f list-group-item py-1">
+                  <label style="color:green;">Skills:</label>
+                  <p>{{$single_view_id->skill}}</p>
               </li>
-              <li class="list-group-item py-1">
-                  <label>Designation:</label>
-                  <h6>{{$single_view_id->designation}}</h6>
+              <li class="f list-group-item py-1">
+                  <label style="color:green;">Designation:</label>
+                  <p>{{$single_view_id->designation}}</p>
               </li>
-              <li class="list-group-item py-1">
-                  <label>Blood Group: </label>
-                  <h6>{{$single_view_id->bg}}</h6>
+              <li class="f list-group-item py-1">
+                  <label style="color:green;">Blood Group: </label>
+                  <p>{{$single_view_id->bg}}</p>
               </li>
-              <li class="list-group-item py-1">
-                  <label>Date of Birth: </label>
+              <li class="f list-group-item py-1">
+                  <label style="color:green;">Date of Birth: </label>
 
                   <?php  
                     $dob = explode('-',$single_view_id->dob);
@@ -126,24 +122,38 @@ CONTACT APP | CONTACT LIST
 
                     $dob3=$dob[2] ;
                   ?> 
-                  <h6>{{$dob2}} {{$dob1}}, {{$dob3}}</h6>
+                  <p>{{$dob2}} {{$dob1}}, {{$dob3}}</p>
               </li>
-              <li class="list-group-item py-1">
-                  <label>Compnay Name</label>
-                  <h6>{{$single_view_id->company}}</h6>
+              <li class="f list-group-item py-1">
+                  <label style="color:green;">Compnay Name</label>
+                  <p>{{$single_view_id->company}}</p>
               </li>
-              <li class="list-group-item py-1">
-                  <label>Previous History</label>
-                  <h6>{{$single_view_id->prehis}}</h6>
+              <li class="f list-group-item py-1">
+                  <label style="color:green;">Previous History</label>
+                  <p>{{$single_view_id->prehis}}</p>
               </li>
 
           </ul>
           <br>
           <br>
-          <br>
         </div>
       </div>
 
+       @if(Auth::check()) 
+      <div class="col-sm-7" style="float:right;">
+          <div class="card-header py-1" style=" font-family: 'Kanit', sans-serif; background-color:#1F618D; ">
+            <a class="btn btn-link btn-sm" href="{{route('edit', $single_view_id->id)}}" style="color:white;">
+              EDIT INFO
+            </a>
+
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+      </div>
+      @endif
+        
     </div>
 </div>
 

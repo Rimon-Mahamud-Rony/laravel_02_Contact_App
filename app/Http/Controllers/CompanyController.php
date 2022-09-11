@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Company;
+use App\Models\Contact;
+
+use Illuminate\Support\Facades\DB;
 
 class CompanyController extends Controller
 {
@@ -17,6 +20,7 @@ class CompanyController extends Controller
             'name'=>'required |unique:companies,name| string | max:50',
             'email'=>'required |unique:companies,email| string ',
             'website'=>'required |unique:companies,website| string ',
+            'mobile'=>'required | unique:companies,mobile| max:13',
 
 
         ]);
@@ -28,6 +32,7 @@ class CompanyController extends Controller
         $stroe_company->email = $request->email;  
         $stroe_company->website = $request->website; 
         $stroe_company->address = $request->address; 
+        $stroe_company->mobile = $request->mobile;
 
         $stroe_company->save();
 
@@ -48,6 +53,8 @@ class CompanyController extends Controller
             'name'=>'required | string | max:50',
             'email'=>'required | string ',
             'website'=>'required | string ',
+            'mobile'=>'required | unique:companies,mobile| max:13',
+
         ]);
         
 
@@ -57,6 +64,7 @@ class CompanyController extends Controller
         $update_company_id->email = $request->email;  
         $update_company_id->website = $request->website; 
         $update_company_id->address = $request->address; 
+        $update_company_id->mobile = $request->mobile;
 
         $update_company_id->save();
 
@@ -73,13 +81,13 @@ class CompanyController extends Controller
         return redirect()->back()->with('message', 'Company has been deleted');
     }
 
-    public function show_all_company()
+   /* public function show_all_company()
     {
         $all_company = Company::all();
 
         return view('index')->with('all_company', $all_company);
 
-    }
+    }*/
 
      public function Company_list()
     {
@@ -111,4 +119,87 @@ class CompanyController extends Controller
         dd($date);
     }
 
+    public function dbtest(Request $request)
+    {
+
+        $sorting_as = request('sort');
+
+        $search_text = $request->Search;
+
+        if ($search_text) {
+            //echo "searching for ".$search_text;
+
+                $dbtest = DB::Select("SELECT contacts.id AS contact_id, contacts.first_name AS contact_name,contacts.last_name AS contactlast_name, contacts.address AS contact_adress, contacts.email AS contact_email, contacts.phone AS contact_phone, companies.name AS company_name, companies.website,companies.email AS company_email, companies.mobile AS company_phone 
+                    FROM contacts, companies 
+                    WHERE contacts.company=companies.name AND ( contacts.phone LIKE '%$search_text%' OR contacts.first_name LIKE '%$search_text%');");
+        }
+        
+
+        elseif ($sorting_as=='az') {
+            $dbtest = DB::Select("SELECT contacts.id AS contact_id, contacts.first_name AS contact_name,contacts.last_name AS contactlast_name, contacts.address AS contact_adress, contacts.email AS contact_email, contacts.phone AS contact_phone, companies.name AS company_name, companies.website,companies.email AS company_email, companies.mobile AS company_phone 
+                    FROM contacts, companies 
+                    WHERE contacts.company=companies.name
+                    ORDER By contacts.first_name ASC;");
+        }
+        elseif ($sorting_as=='za') {
+
+            $dbtest = DB::Select("SELECT contacts.id AS contact_id, contacts.first_name AS contact_name,contacts.last_name AS contactlast_name, contacts.address AS contact_adress, contacts.email AS contact_email, contacts.phone AS contact_phone, companies.name AS company_name, companies.website,companies.email AS company_email, companies.mobile AS company_phone FROM contacts, companies WHERE contacts.company=companies.name ORDER By contacts.first_name DESC;");
+        }
+
+        elseif ($sorting_as) {
+            $dbtest = DB::Select(" SELECT contacts.id AS contact_id, contacts.first_name AS contact_name,contacts.last_name AS contactlast_name, contacts.address AS contact_adress, contacts.email AS contact_email, contacts.phone AS contact_phone, companies.name AS company_name, companies.website,companies.email AS company_email, companies.mobile AS company_phone, companies.id as com_id FROM contacts, companies WHERE contacts.company=companies.name AND companies.id='$sorting_as'; ");
+        }
+
+        else
+
+        $dbtest = DB::Select("SELECT contacts.id AS contact_id, contacts.first_name AS contact_name, contacts.last_name AS contactlast_name, contacts.address AS contact_adress, contacts.email AS contact_email, contacts.phone AS contact_phone, companies.name AS company_name, companies.website,companies.email AS company_email, companies.mobile AS company_phone FROM contacts, companies WHERE contacts.company=companies.name");
+
+        //$dbtest = Company::all();$users = DB::table('users')->count();
+
+        //$qr = "SELECT name, address from companies"
+
+        //$dbtest = DB::table('companies')->get();
+
+        //$dbtest = DB::table('contacts')
+                //->join('companies','contacts.company','=','companies.name')
+                //->select('companies.name','contacts.phone')
+                //->orderBy('companies.name', 'desc')
+                //->get();
+
+        
+        //dd($dbtest); return View::make('pages.index')
+
+        //return $dbtest;
+
+        $company_name=Company::all();
+
+
+
+        return view('index')
+                    ->with('dbtest',$dbtest)
+                    ->with('company_name',$company_name); 
+
+    }
+
+    /*public function link()
+
+    { 
+        $test = request('sort');
+
+        if(($test)=='az')
+        {
+            $dbtest = DB::Select("SELECT contacts.id AS contact_id, contacts.first_name AS contact_name, contacts.address AS contact_adress, contacts.email AS contact_email, contacts.phone AS contact_phone, companies.name AS company_name, companies.website,companies.email AS company_email, companies.mobile AS company_phone 
+                    FROM contacts, companies 
+                    WHERE contacts.company=companies.name
+                    ORDER By contacts.first_name ASC;");
+                $company_name=Company::all();
+        
+
+        return view('index')
+                    ->with('dbtest',$dbtest)
+                    ->with('company_name',$company_name);
+    }
+    }*/
+
+   
 }

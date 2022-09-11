@@ -59,6 +59,11 @@ CONTACT APP|Creat Company
 		  </div>
 
 		  <div class="form-group ">
+		    <label for="exampleInputEmail1">Mobile</label>
+		    <input type="text" class="form-control form-control-sm" name="mobile" value="{{$edit_company_id->mobile}}">
+		  </div>
+
+		  <div class="form-group ">
 		    <label for="exampleInputEmail1">Email address:</label>
 		    <input type="email" class="form-control form-control-sm" name="email" value="{{$edit_company_id->email}}">
 		  </div>

@@ -20,7 +20,7 @@ class ContactController extends Controller
     public function contact_list()
     {
 
-        $contact_list = Contact::all()->sortByDesc("id");
+        $contact_list = Contact::all()->sortBy("first_name");
 
         return view('contact_list')->with('contact_list', $contact_list);
 
@@ -112,9 +112,10 @@ class ContactController extends Controller
 
     }
 
-    public function edit(Request $request)
-    {
 
+    public function edit(Request $request, $id)
+    {
+        return view('edit_contact');
     }
 
     public function delete($id)
@@ -131,6 +132,33 @@ class ContactController extends Controller
         $single_view_id = Contact::find($id);
 
         return view('single_view')->with('single_view_id', $single_view_id);
+
+    }
+
+    
+    /*public function last_action()
+    {
+        $last_action =Contact::latest()->first();
+
+        //dd($last_action);
+
+        return view('home')->with('last_action', $last_action);
+    }*/
+
+
+    public function search(Request $request)
+    {
+        //dd("searching.... ");
+
+        $search_text = $request->Search;
+
+        $info = Contact::OrderBy('id','desc')
+                ->Where('first_name','Like', '%'.$search_text.'%')
+                ->orWhere('phone','Like', '%'.$search_text.'%')
+                ->orWhere('address','Like', '%'.$search_text.'%')
+                ->get();
+
+        dd($info);
 
     }
 

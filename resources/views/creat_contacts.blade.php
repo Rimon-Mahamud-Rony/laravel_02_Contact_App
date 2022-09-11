@@ -4,7 +4,12 @@
 CONTACT APP|Creat Contacts
 @endsection
 
-<link rel="stylesheet" type="text/css" href="{{asset('jq/jquery-ui.min.css')}}">
+<!--link rel="stylesheet" type="text/css" href="{{asset('jq/jquery-ui.min.css')}}"-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 
 @section('creat_contacts')
 
@@ -246,8 +251,9 @@ CONTACT APP|Creat Contacts
 			dateFormat: "dd-mm-yy",
 			changeMonth: true,
 			changeYear: true,
-			/*maxDate: '600M',
-			minDate: '-600M'*/
+			//numberofMonths:1,
+			//minDate: new Date(1980,0,5),
+			//maxDate: new Date(2050,0,5),
 		});
 			
 	}
