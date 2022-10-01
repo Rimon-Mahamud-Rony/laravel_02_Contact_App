@@ -26,7 +26,7 @@ CONATCT APP | ADD CONTACTS
 	@if (Session::has('message'))
 		   <div id="session_message" class="alert alert-warning" style="border-radius:0px; width:70%; margin-left: 15%;  text-align: center; font-size: 12px;">{{ Session::get('message') }}
 		   </div>
-		   
+
 	@endif
 
 	<div id="cardbody" class="container-fluid" style="font-size: 12px;">
@@ -40,7 +40,7 @@ CONATCT APP | ADD CONTACTS
 			@csrf
 
 			<div id="full_form_section" class="container-fluid">
-				
+
 				<div id="right" class="card" style="width: 24rem; float:left;">
 						<div class="card-header " style=" background-color:#1F618D; color: white; font-family: 'Kanit', sans-serif;">
 							<span>Contact Info</span>
@@ -60,7 +60,9 @@ CONATCT APP | ADD CONTACTS
 
 						  	<div class="form-group">
 						    	<label for="exampleInputEmail1">Display Photo:</label>
-						    	<input class="form-control form-control-sm" type="file" name="dp" id="formFile">
+                                <img id="show_current_image" height="120" width="140">
+                                <p></p>
+						    	<input class="form-control form-control-sm" type="file" name="dp" id="formFile" onchange="loadFile(event)">
 						    </div>
 						<!-- image-----------------------image-----------------------image--------------->
 							<div class="form-group">
@@ -78,7 +80,7 @@ CONATCT APP | ADD CONTACTS
 							    <input type="text" class="form-control form-control-sm" name="address">
 							</div>
 						</li>
-							
+
 					</ul>
 				</div>
 
@@ -92,7 +94,7 @@ CONATCT APP | ADD CONTACTS
 							<span>Description</span><span style="float:right;"><a href="/contact_list" style="color:yellow;">Conatct List</a></span>
 						</div>
 					<ul class="list-group">
-						<li class="list-group-item py-1">	
+						<li class="list-group-item py-1">
 
 							<div class="form-group ">
 							    <label for="exampleInputEmail1">Skills</label>
@@ -130,9 +132,9 @@ CONATCT APP | ADD CONTACTS
 							      @foreach ($list_company as $list_company)
 
 							      <option>{{$list_company->name}}</option>
-							      
+
 							      @endforeach
-							      
+
 							    </select>
 						  	</div>
 
@@ -140,8 +142,8 @@ CONATCT APP | ADD CONTACTS
 							    <label for="exampleInputEmail1">Previous History</label>
 							    <input type="text" class="form-control form-control-sm" name="prehis">
 							</div>
-					 		
-					 	</li> 
+
+					 	</li>
 					</ul>
 				</div>
 				<div class="container-fluid" style="float:left; text-align: center;">
@@ -162,7 +164,7 @@ CONATCT APP | ADD CONTACTS
 		</form>
 
 		<br>
-		
+
 	</div>
 </div>
 	<p>&nbsp;</p>
@@ -178,7 +180,7 @@ CONATCT APP | ADD CONTACTS
                 <div class="card-header">
                 	 {{ __('Please Log in First') }}
                 </div>
-                
+
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -212,7 +214,7 @@ CONATCT APP | ADD CONTACTS
                             </div>
                         </div>
 
-                        
+
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
@@ -244,6 +246,15 @@ CONATCT APP | ADD CONTACTS
 </div>
 @endif
 
+<script>
+    var loadFile = function (event)
+	{
+		var image_show = document.getElementById("show_current_image");
+
+        image_show.src = URL.createObjectURL(event.target.files[0]);
+	} ;
+</script>
+
 <script  src="{{asset('jq/jquery-3.6.1.min.js')}}"></script>
 <script  src="{{asset('jq/jquery-ui.min.js')}}"></script>
 
@@ -257,7 +268,7 @@ CONATCT APP | ADD CONTACTS
 			//minDate: new Date(1980,0,5),
 			//maxDate: new Date(2050,0,5),
 		});
-			
+
 	}
 	)
 </script>
